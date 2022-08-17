@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
+
+:root {
+  --Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+  --Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+  --Grayish-Blue: hsl(212, 23%, 69%);
+  --Light-Grayish-Blue: hsl(210, 46%, 95%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  align-items: center;
+  background-color: var(--Light-Grayish-Blue);
+  display: flex;
+  justify-content: center;
+  font-family: "Manrope", sans-serif;
+  min-height: 100vh;
+  margin: 40px 20px;
+}
+
+#card {
+  background-color: white;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+figure {
+  overflow: hidden;
+  border-radius: 10px 0 0 10px;
+}
+
+#card-img {
+  object-fit: cover;
+  height: 220px;
+  width: 100%;
+}
+
+#about {
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+#about h1 {
+  font-size: 18px;
+  color: var(--Very-Dark-Grayish-Blue);
+}
+
+#about p {
+  font-size: 14.75px;
+  color: var(--Desaturated-Dark-Blue);
+  line-height: 1.5;
+}
+
+#share {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+#profile {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  column-gap: 15px;
+}
+
+#profile-img {
+  border-radius: 50%;
+  grid-row: 1/3;
+  height: 36px;
+}
+
+#name {
+  color: var(--Very-Dark-Grayish-Blue);
+}
+
+#time {
+  color: var(--Grayish-Blue);
+}
+
+#share-btn {
+  border: none;
+  align-self: center;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+#share-btn svg {
+  background-color: var(--Light-Grayish-Blue);
+  border-radius: 50%;
+  padding: 7px 7.5px;
+  fill: var(--Desaturated-Dark-Blue);
+}
+
+#share-btn .tooltiptext {
+  display: none;
+}
+
+#share-btn .tooltiptext p {
+  /* color: var(--Light-Grayish-Blue); */
+  letter-spacing: 4px;
+}
+
+#share-btn .tooltiptext img {
+  height: 16px;
+}
+
+/* When share button clicked in mobile view (STARTS)*/
+.clicked #profile {
+  visibility: hidden;
+}
+
+.clicked #share-btn {
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: var(--Very-Dark-Grayish-Blue);
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+}
+
+.clicked #share-btn svg {
+  background-color: var(--Desaturated-Dark-Blue);
+  fill: white;
+}
+
+.clicked #share-btn .tooltiptext {
+  align-items: center;
+  display: flex;
+  gap: 15px;
+}
+/* When share button clicked in mobile view (ENDS)*/
+
+@media screen and (min-width: 1440px) {
+  body {
+    margin: 0;
+  }
+  #card {
+    width: 800px;
+    display: grid;
+    grid-template-columns: 38% 62%;
+    overflow: visible;
+  }
+
+  #card-img {
+    object-position: left;
+    width: 100%;
+    height: 100%;
+  }
+
+  #share-btn {
+    position: relative;
+  }
+
+  #share-btn:hover svg,
+  #share-btn.clicked svg {
+    background-color: var(--Desaturated-Dark-Blue);
+    fill: white;
+  }
+
+  #share-btn .tooltiptext {
+    width: fit-content;
+    align-items: center;
+    background-color: var(--Very-Dark-Grayish-Blue);
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 20px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: -70px;
+    gap: 10px;
+  }
+
+  #share-btn:hover .tooltiptext,
+  #share-btn.clicked .tooltiptext {
+    display: flex;
+  }
+
+  #share-btn .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--Very-Dark-Grayish-Blue) transparent transparent
+      transparent;
+  }
+}
